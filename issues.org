@@ -1,0 +1,6 @@
+* TODO Make “head” and “tail” scripts
+
+These scripts would act like the head(1) and tail(1) utilities except
+that fft terminators are used instead of lines.  So if the “head” script
+is named ~fft-head~, the invocation ~fft-head -5~ should output the
+first five form feed-terminated sections of the file.
