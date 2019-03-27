@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Split an fft file into multiple (text) files which are split by the
+# terminator.
+#
+# Input argument: file
+csplit --suppress-matched --elide-empty-files \
+    "$1" /$(printf "\f\n")/ '{*}'
