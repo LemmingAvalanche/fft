@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Remove all form feed characters.
+tr -d '\f'
