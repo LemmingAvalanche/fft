@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Sort a file by using form feed + newline as the separator instead of
+# newlines.
+
+# NOTE First translate `\f\n` to the null character, then pass to `sort`
+# which sorts on null as the separators, then translate back to `\f\n`
+# again.
+perl -pe 's/\f\n/\0/' |
+    sort -n --zero-terminated |
+    perl -pe 's/\0/\f\n/'
