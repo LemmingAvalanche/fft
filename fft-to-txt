@@ -1,5 +1,4 @@
 #!/bin/sh
 
-# Remove all fft terminators.  More specifically, remove all lines where
-# the last character before the newline is a form feed character.
-sed -e '/\f$/d'
+# Remove all fft terminators.
+perl -pe 's/\f\n//g'
