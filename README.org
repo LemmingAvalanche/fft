@@ -1,4 +1,4 @@
-fft — Form feed-terminated text files.
+fft — Form feed + line feed-terminated text files.
 
 fft is a filetype where the string ~\f\n~ (form feed followed by
 line feed) can be used as a terminator.
