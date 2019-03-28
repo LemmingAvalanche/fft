@@ -11,6 +11,7 @@
 #     1f6b66c8-8999-4b55-9ce6-267e8338f42d.
 # See: adapted from: https://unix.stackexchange.com/a/474871/185805
 content=$(./fft-tail $1 $2; echo t)
+# Remove the `t` from the end of `contents` (added with `echo t` above).
 content=${content%t}
 length=$(printf "$content" | wc -c)
 truncate -s -$length "$2"
