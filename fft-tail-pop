@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Output the last `n` sections and remove them from the file (truncate).
+# Or: “pop” the contents (print and remove).
+#
+# Input argument 1: `n`, the number of sections.
+# Input argument 1: the file.
+#
+# NOTE The `echo t` pattern is needed since command substitution strips
+#     the trailing newline, apparently.  See:
+#     1f6b66c8-8999-4b55-9ce6-267e8338f42d.
+# See: adapted from: https://unix.stackexchange.com/a/474871/185805
+content=$(./fft-tail $1 $2; echo t)
+content=${content%t}
+length=$(printf "$content" | wc -c)
+truncate -s -$length "$2"
+printf %s "$content"
