@@ -33,3 +33,13 @@ that it contains.
 
 *Empty file.*  An fft file that contains no characters.  Equivalent to
 an empty text file.
+
+* Well-formed fft files
+
+A well-formed fft file:
+
+1. Is either empty or consists of one or more sections.
+2. Contains no more than one empty sections, that is, a section with no
+   content.
+3. Since all sections need to be terminated, the last string in a
+   well-formed non-empty fft file is the terminator.
