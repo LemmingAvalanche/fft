@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Output the last `n` sections.
+#
+# Input argument: `n`, the number of sections.
+perl -pe 's/\f\n/\0/' |
+    tail --zero-terminated --lines=$1 |
+    perl -pe 's/\0/\f\n/'
