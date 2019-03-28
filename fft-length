@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Print the number of sections.
+#
+# Input argument 1: the file.
+grep "$(printf '^\f$')" "$1" | wc --lines
