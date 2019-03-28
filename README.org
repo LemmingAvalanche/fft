@@ -1,4 +1,22 @@
 fft — Form feed-terminated text files.
 
-fft is a filetype where the string ~\f\n~ (form feed followed by
-line feed) can be used as a terminator.
+fft is a filetype where the string ~\f\n~ acts as a separator.  Thus it
+can be used to store a list of contents that do not themself contain the
+string ~\f\n~.
+
+fft is supposed to work well with Unix-style text files (henceforth just
+“text files”).  Such a file is [[http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_403][defined as]]:
+
+#+BEGIN_QUOTE
+A file that contains characters organized into zero or more lines.
+#+END_QUOTE
+
+And a “line” is [[http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206][defined as]]:
+
+#+BEGIN_QUOTE
+A sequence of zero or more non-<newline> characters plus a terminating
+<newline> character.
+#+END_QUOTE
+
+Conceptually, a fft file should be able to store a list of contents
+which could be text files in their own right.
