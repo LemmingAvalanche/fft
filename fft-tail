@@ -2,7 +2,8 @@
 
 # Output the last `n` sections.
 #
-# Input argument: `n`, the number of sections.
-perl -pe 's/\f\n/\0/' |
+# Input argument 1: `n`, the number of sections.
+# Input argument 2: the file.
+perl -pe 's/\f\n/\0/' "$2" |
     tail --zero-terminated --lines=$1 |
     perl -pe 's/\0/\f\n/'
