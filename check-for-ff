@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Check if standard input contains form feed characters.  If so, give an error
+# message and exit with exit code 1.
+#
+# Used when building up fft file.
+
+result=$(grep "$(printf '\f')")
+
+if [ -n "$result" ]; then
+    >&2 echo "check-for-ff: error: form feed present in input:"
+    >&2 echo "$result"
+    exit 1
+fi
