@@ -11,9 +11,8 @@
 for var in "$@"
 do
     ./fft-check-for-ff < "$var"
+    if [ $? -ne 0 ]; then
+        >&2 echo "fft-build: exiting due to aforementioned errors."
+        exit $?
+    fi
 done
-
-if [ $? -ne 0 ]; then
-    >&2 echo "fft-build: exiting due to aforementioned errors."
-    exit $?
-fi
