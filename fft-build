@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Concatenate text, creating one section per input.
+#
+# Unlike cat(1), the type of the input and the output are different: the
+# inputs are text files while the output is an fft file.  This is why
+# the filename uses the word “build” instead of something like “cat”, to
+# avoid confusion.
+
+# Check for occurrences of form feed characters.
+for var in "$@"
+do
+    ./fft-check-for-ff < "$var"
+done
+
+if [ $? -ne 0 ]; then
+    >&2 echo "fft-build: exiting due to aforementioned errors."
+    exit $?
+fi
