@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Check if a (presumed) plaintext text file is a Unix plaintext file
+# (see the readme for a definition).
+
+# Source: https://stackoverflow.com/a/2421790/1725151
+test "$(tail -c 1 | wc -l)" -eq 0 && \
+    >&2 echo "fft-check-unix-text-file: error: not a Unix text file"
